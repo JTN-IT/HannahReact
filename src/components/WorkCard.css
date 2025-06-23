@@ -1,0 +1,73 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 30, 30, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #475c36;
+  border-radius: 12px;
+  max-width: 90vh;
+  width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  position: relative;
+  animation: modalPopIn 0.25s;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+@keyframes modalPopIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.modal-close:hover {
+  color: #168a53;
+}
+
+/* Responsive images */
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  box-sizing: border-box;
+}
+
+/* Prevent parent flex or grid from stretching image */
+.workdetailcontent {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Extra: Remove scrollbars on small screens */
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 98vw;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+  }
+}

@@ -2,9 +2,10 @@
 
 /* ******************************************SITEWIDE */
 
-* {
+
+/* * {
   outline: 1px solid rgba(255, 0, 0, 0.2);
-}
+} */
 
 
 html {
@@ -108,7 +109,7 @@ footer {
 .artistbanner::before,
 .artistbanner::after {
   content: "";
-  width: 60px;
+  width: 100px;
   height: 1px;
   background-color: rgba(231, 49, 49, 0.5);
 }
@@ -221,7 +222,7 @@ footer {
   padding: 1rem;
 }
 
-.about a {
+.about a, .navwork li {
   color: #d2a0a0;
 }
 
@@ -245,20 +246,19 @@ footer {
 /* ******************************************* WORKNAV */
 .navwork {
   text-align: center;
-  padding-top: 2rem;
-  margin: 0;
+  padding-top: 0.5rem;
+  margin: 0 0 50px 0;
   position: relative;
 }
 .navwork::before {
   content: "";
   position: absolute;
-  top:20px;
+  top:10px;
   left: 50%;
   transform: translateX(-50%);
   width: 45%;
-  height: 0.5px;
-  background-color: rgba(210, 160, 160, 0.5);
-}
+  height: 1px;
+  background-color: rgba(231, 49, 49, 0.3);}
 .navwork ul {
   display: flex;
   justify-content: center;
@@ -267,10 +267,10 @@ footer {
   padding: 0;
   gap: 3.5rem;
 }
-.navwork a {
-  font-size: 1rem;
+.navwork a, .navwork li {
   text-align: center;
   line-height: 50px;
+  font-family: "libre baskerville", serif;
 }
 
 /* ******************************************* WORK */
@@ -280,16 +280,19 @@ footer {
   flex-direction: column;
   gap: 2rem;
   max-width: 800px;
-  margin: 0 auto 100px auto;
+  margin: 0 auto 50px auto;
 }
-
+.workcard-link {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; 
+}
 .image {
   width: 250px;
   height: 250px;
   flex-shrink: 0;
   overflow: hidden;
 }
-
 .image img {
   width: 100%;
   height: 100%;
@@ -298,20 +301,25 @@ footer {
   display: block;
   margin: 0;
 }
-.text {
+.card-container .text {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   flex: 1;
   padding: 0 1rem;
 }
-
-.text a {
+.card-container .text a {
   align-self: flex-end;
   margin-top: auto;
   font-size: 0.9rem;
 }
+.text .click-more {
+  margin-top: 1.5em; /* or whatever spacing looks best */
+}
 
+.workdetailcontent p {
+  white-space: pre-line;
+}
 
 /* ******************************************* BLOG */ 
 .blogcard {
@@ -367,6 +375,27 @@ footer {
 }
 .contactcard.contactphoto {
   border-radius: 15px 0px 0px 15px;
+}
+
+.button {
+  background-color: #2b2a33;
+  color: #fff;
+  border: 1px solid  #8f8f9d;
+  border-radius: 2px;
+  padding: 0.4em 1.2em;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  margin-top: 0.5em;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #5d7249;
+  color: #fff;
+  border-color: #d2a0a0;
+  outline: none;
 }
 
 /***************************************************************************************
