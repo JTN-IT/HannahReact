@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { Outlet, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import WorkNav from '../components/WorkNav';
 import WorkCard from '../components/WorkCard';
+import VideoPage from '../pages/VideoPage';
 import projects from '../data/projects';
+
+
+
 
 
 function WorkPage() {

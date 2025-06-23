@@ -19,7 +19,7 @@ const projects = [
     category: "creations",
     details: [
       { type: "image", value: "/assets/images/work.creations/journey1.jpg" },
-      { type: "text", value: `Hannah designed and constructed these costumes in her final year of studying Performance Costume BA (Hons). The ECA Costume Show 2020 was cancelled due to the pandemic so Hannah decided to make a video of her costumes in her local forest as an alternative way to show them.\n\nThe inspiration for the costumes was a book that Hannah wrote called 'Journey'. In the format of a continuous poem, the book tells the story of Hannah walking barefoot through her forest at home. She describes all of the sensations that she experienced: scents, sights, sounds and the different textures felt under her feet; some nice, some painful. During her walk, she also found objects, plants or animals that she took close-up photographs of and had wonderful imaginings of a miniature human interacting with these things. She created these imaginings visually in photographic form and they appear in the book at the points where they were spotted along the journey. With each image there is a short poem that she wrote to tell a taster of a story about the miniature person's experience. The costumes were inspired by the natural textures found in each photograph. The pages of the book are the paper gills of a mushroom. She created this mushroom structure in order to present the book as a natural form; in homage to the forest (see images below).` },
+      { type: "text", value: `Hannah designed and constructed these costumes in her final year of studying Performance Costume BA (Hons). The ECA Costume Show 2020 was cancelled due to the pandemic so Hannah decided to make a video of her costumes in her local forest as an alternative way to show them. Watch a video of this project [here](https://www.youtube.com/watch?v=0UX1dSzNvqQ) !\n\nThe inspiration for the costumes was a book that Hannah wrote called 'Journey'. In the format of a continuous poem, the book tells the story of Hannah walking barefoot through her forest at home. She describes all of the sensations that she experienced: scents, sights, sounds and the different textures felt under her feet; some nice, some painful. During her walk, she also found objects, plants or animals that she took close-up photographs of and had wonderful imaginings of a miniature human interacting with these things. She created these imaginings visually in photographic form and they appear in the book at the points where they were spotted along the journey. With each image there is a short poem that she wrote to tell a taster of a story about the miniature person's experience. The costumes were inspired by the natural textures found in each photograph. The pages of the book are the paper gills of a mushroom. She created this mushroom structure in order to present the book as a natural form; in homage to the forest (see images below).` },
       { type: "image", value: "/assets/images/work.creations/journey2.jpg" },
       { type: "image", value: "/assets/images/work.creations/journey3.jpg" },
       { type: "text", value: `(Image of miniature character as it appears in the book.)`},      
@@ -42,8 +42,9 @@ const projects = [
     description: "I worked as part of the team at Belladrum to operate multiple life-size puppets.\n\nClick me to see more!",
     link: '/work/projectpages/belladrum',
     category: "performance",
+    videoId: "belladrum",
     details: [
-      { type: "text", value: `Black Dog Puppet Company, lead by Greg Dobson, have brought many exciting life-size puppets to the Tartan Heart Festival over the past few years. I have worked as part of the team to operate multiple War Horse replica puppets, a life-sized elephant puppet and a life-sized whale puppet. We have also performed at several of the Ness Islands Halloween Shows.\n\nSee the Videos page for a video of me puppeteering my feral cat puppet, spider puppet and the elephant puppet shown.` },
+      { type: "text", value: `Black Dog Puppet Company, lead by Greg Dobson, have brought many exciting life-size puppets to the Tartan Heart Festival over the past few years. I have worked as part of the team to operate multiple War Horse replica puppets, a life-sized elephant puppet and a life-sized whale puppet. We have also performed at several of the Ness Islands Halloween Shows.\n\nSee my Videos page for a video of me puppeteering my feral cat puppet, spider puppet and the elephant puppet shown.` },
       { type: "image", value: "/assets/images/work.performance/belladrum.avif" }
     ]
   },
@@ -106,7 +107,7 @@ const projects = [
     details: [
       { type: "text", value: `'Be-Wildered in the City' was a holistic Edinburgh Fringe Festival event lead by the Schumacher College Scottish alumni. People were brought together alongside the Water of Leith to be present and witness a peaceful existence. The mindful and explorative activities helped everyone to connect deeply with nature and their own inner landscape. It left many people feeling balanced, revitalised and inspired.` },
       { type: "image", value: "/assets/images/work.collaboration/bewildered.avif" },
-       { type: "text", value: `Schumacher Scotland facilitators: Glen Cousquer, David Delsart, Mona Kastell, Murray Mc Grath, Hannah Myers, Danuta Orlowska & Alasdair Sim\nPhotography: Hannah Myers` },
+      { type: "text", value: `Schumacher Scotland facilitators: Glen Cousquer, David Delsart, Mona Kastell, Murray Mc Grath, Hannah Myers, Danuta Orlowska & Alasdair Sim\nPhotography: Hannah Myers` },
     ]
   }
 ];
