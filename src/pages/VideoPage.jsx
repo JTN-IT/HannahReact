@@ -1,5 +1,6 @@
 import React from "react";
 import videos from "../data/videos.js";
+import './VideoPage.css';
 
 const VideoPage = () => (
   <div className="work">

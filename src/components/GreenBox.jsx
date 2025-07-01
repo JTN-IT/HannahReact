@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './GreenBox.css'
 
 function GreenBox({ to, children, className = '' }) {
   const classes = `greencontainer ${className}`;

@@ -1,15 +1,20 @@
+import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import './Layout.css'
 
 function Layout() {
-  return (
-    <>
+
+  const [topbox, setTopbox] = useState(null);
+
+    return (
+    <div className="layout">
       <header className="artistheader">
         <h1 className="artistheading">Hannah Myers</h1>
         <h2 className="artistbanner">ARTIST</h2>
       </header>
 
-      <nav className="navdesktop">
+      <nav className="nav">
         <ul>
           <li><Link to="/">HOME</Link></li>
           <li><Link to="/about">ABOUT</Link></li>
@@ -19,14 +24,20 @@ function Layout() {
         </ul>
       </nav>
 
+      <div className="topbox">
+        {topbox}
+      </div>
+
       <main>
-        <Outlet />
+        <div className="contentbox">
+          <Outlet context={{ setTopbox }} />
+        </div>
       </main>
 
       <footer className="footer">
         <p>&copy; Hannah Myers</p>
       </footer>
-    </>
+    </div>
   );
 }
 

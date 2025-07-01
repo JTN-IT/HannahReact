@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import GreenBox from "./GreenBox";
-import './WorkCard.css'
+import './WorkCard.css';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ export default function WorkCard({ project }) {
   return (
     <>
       <div className="card-container" onClick={handleOpen} style={{ cursor: 'pointer' }}>
-        <GreenBox>
+        <GreenBox className="workCards">
           <div className="image">
             <img src={project.imageSrc} alt={project.title} />
           </div>

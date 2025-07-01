@@ -1,0 +1,149 @@
+Roadmap: Migrating Blog to React Site with Netlify CMS
+1. Preparation & Planning
+
+    Review the current site structure and where you want the blog to appear (e.g., /blog).
+    Decide on the URL structure for blog posts (e.g., /blog/my-first-post).
+    Confirm you have access to the site’s GitHub repository and Netlify account.
+
+2. Set Up Blog Structure in React
+
+    Create a /blog page or directory in your React project.
+    Decide on a format for blog posts (Markdown files in a /content/blog or /posts folder is common).
+    Build a component/page to list all blog posts.
+    Build a component/page to display individual blog posts.
+
+3. Migrate Content from WordPress
+
+    Export blog posts from WordPress (typically via Tools > Export, outputting XML).
+    Convert exported posts to Markdown format (tools like wordpress-to-markdown or manual conversion).
+    Add frontmatter to each Markdown file (YAML at the top with title, date, author, etc.).
+    Place Markdown files in the designated /posts or /content/blog folder.
+
+4. Integrate Netlify CMS
+
+    Install Netlify CMS as a dependency (npm install netlify-cms-app or use a CDN).
+    Add an /admin route to your site and create an admin folder with an index.html for the CMS.
+    Create a config.yml file for Netlify CMS, defining collections (e.g., blog posts) and fields (e.g., title, body, image).
+    Configure the CMS to work with your GitHub repo (using Git Gateway or GitHub authentication).
+    Deploy your site to Netlify and enable Identity/Git Gateway in your Netlify dashboard.
+
+5. Style and Test
+
+    Style the blog list and post pages to match your site’s branding.
+    Test creating, editing, and deleting posts via Netlify CMS.
+    Make sure published/edited posts update the live site after each commit/deploy.
+    Optionally, set up previews for posts in the CMS.
+
+6. Add Comments (Optional)
+
+    Integrate a third-party service like Disqus or Giscus for comments.
+    Add the comment component to your blog post template.
+
+7. Train the Site Owner
+
+    Provide simple documentation or a walkthrough for logging in to /admin, creating/editing posts, and uploading images.
+    Ensure the site owner can perform all basic tasks without technical help.
+
+8. Launch & Maintenance
+
+    Do a final review and QA.
+    Announce the migration to users/readers if relevant.
+    Periodically update dependencies and check that Netlify CMS and the site’s build are working smoothly.
+
+Summary Checklist
+
+    Blog structure in React created
+    Blog content migrated and formatted as Markdown
+    Netlify CMS integrated and configured
+    Authentication set up for site owner
+    Blog styling matches site
+    Comments (optional) integrated
+    Owner trained with simple instructions
+    Site tested and deployed
+
+Let me know if you’d like a sample config.yml for Netlify CMS, or a starter implementation of any part of this!
+
+
+
+
+
+
+
+
+
+
+Set up Netlify Identity
+
+    In your Netlify dashboard, go to your site → Identity → Enable Identity.
+    Set registration to “Invite only” so only you can add users.
+
+Enable Git Gateway
+
+    In Identity → Services, enable Git Gateway.
+    Connect it to your GitHub repo.
+
+Configure Netlify CMS
+
+    In your repo, add the admin/config.yml file for Netlify CMS.
+    Set backend: to use git-gateway.
+    Limit the CMS “collections” to only the blog posts or content folders (not /src, /components, etc.).
+
+Example:
+YAML
+
+backend:
+  name: git-gateway
+  branch: main # or your deploy branch
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+Invite Your Client
+
+    In Netlify Identity, invite your client by email.
+    They’ll receive a secure invite to set their password and can log in at /admin.
+
+Test Permissions
+
+    Log in as your client and confirm that:
+        They can add/edit blog posts.
+        They cannot see or edit code, settings, or other sensitive files.
+
+Deploy and Document
+
+    Make sure the CMS works in production.
+    Give your client a simple doc or screencast for logging in and editing posts.
+
+
+
+
+
+npm error code ERESOLVE
+npm error ERESOLVE unable to resolve dependency tree
+npm error
+npm error While resolving: hannahreact@0.0.0
+npm error Found: react@19.1.0
+npm error node_modules/react
+npm error   react@"^19.1.0" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer react@"^16.8.4 || ^17.0.0" from netlify-cms-app@2.15.72
+npm error node_modules/netlify-cms-app
+npm error   netlify-cms-app@"*" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error /home/Noril/.npm/_logs/2025-07-01T12_47_43_585Z-eresolve-report.txt
+npm error A complete log of this run can be found in: /home/Noril/.npm/_logs/2025-07-01T12_47_43_585Z-debug-0.log
+

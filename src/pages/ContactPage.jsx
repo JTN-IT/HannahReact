@@ -1,8 +1,16 @@
-import portrait from '../assets/images/contact.jpg'; // Adjust path if needed
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
+import portrait from '../assets/images/contact.jpg';
+import './ContactPage.css';
 
 const ContactPage = () => {
-  // Simple form state (no backend, just feedback)
+
+  const { setTopbox } = useOutletContext();
+
+  useEffect(() => {
+    setTopbox(<></>);
+  }, [setTopbox]);
+
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -12,7 +20,6 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here, you would normally handle sending the form somewhere
     setSubmitted(true);
   };
 

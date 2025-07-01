@@ -1,0 +1,87 @@
+
+/* ****************************************** PAGE BANNER */
+
+.artistheader {
+  margin: 40px 0 20px;
+  color: #d2a0a0;
+}
+.artistheading, .artistbanner {
+  font-weight: 180;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+.artistheading {
+  text-align: center;
+  font-size: 3rem;
+}
+.artistbanner {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+}
+.artistbanner::before,
+.artistbanner::after {
+  content: "";
+  width: 100px;
+  height: 1px;
+  background-color: rgba(231, 49, 49, 0.5);
+}
+
+/* ****************************************** NAV BAR */
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;             /* ✅ allows wrapping */
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 3.5rem;                   /* smaller gap for tighter space */
+  padding: 0.5rem 1rem;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav a {
+  color: #d2a0a0;
+  font-size: 1.2rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .nav ul {
+    gap: 1.5rem;
+  }
+}
+
+/* ****************************************** PAGE BOXES */
+.topbox {
+  width: 100%;
+  height: 10vh;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contentbox {
+  width: 90vw;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+/* ****************************************** FOOTER */
+.footer {
+  flex: 0 0 50px;
+  margin-top: auto;
+  text-align: center;
+  color: #97ba8f;
+  width: 100%;
+}
+
+
+

@@ -1,0 +1,104 @@
+
+
+/* ******************************************* WORK */
+.work {
+  margin-top: calc(var(--page-top-space) - 56px);
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+}
+.workcard-link {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; 
+}
+.image {
+  width: 250px;
+  height: 250px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  margin: 0;
+}
+.card-container .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  padding: 0 1rem;
+}
+.card-container .text a {
+  align-self: flex-end;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+.text .click-more {
+  margin-top: 1.5em; /* or whatever spacing looks best */
+}
+.workdetailcontent p {
+  white-space: pre-line;
+}
+
+/* --- Responsive for mobile --- */
+@media (max-width: 900px) {
+  .work {
+  margin-top: calc(var(--page-top-space) - 132px);
+  }
+
+  .card-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 80vw;
+  }
+
+ .workCards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  gap: 1rem;
+  }
+
+  .workCards > * {
+  max-height: 75vh;
+  width: 100%;
+  box-sizing: border-box;
+  }
+}
+
+
+
+/******************************************** MORE DETAILED WORK PAGES STYLING */
+
+.workdetailcontent {
+  display: flex;
+  flex-direction: column;  /* Stack content vertically */
+  justify-content: center;  /* Vertically center the content */
+  align-items: center;  /* Horizontally center the content */
+  box-sizing: border-box;
+  text-align: center;
+  width: 75vh;
+  margin: 2rem auto 0 auto;
+}
+
+.workdetailcontent img {
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 4px;
+}
+
+
+
+

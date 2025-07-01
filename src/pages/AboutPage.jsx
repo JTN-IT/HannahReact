@@ -1,7 +1,17 @@
+import React, { useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import GreenBox from '../components/GreenBox.jsx';
 import portrait from '../assets/images/portrait.jpg';
+import './AboutPage.css';
+
 
 function AboutPage() {
+  const { setTopbox } = useOutletContext();
+
+  useEffect(() => {
+    setTopbox(<></>);
+  }, [setTopbox]);
+
   return (
     <section className="about">
       <GreenBox className="aboutcard portrait">
@@ -27,7 +37,7 @@ function AboutPage() {
         </p>
         <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">View my CV</a>
       </GreenBox>
-    </section>
+      </section>
   );
 }
 

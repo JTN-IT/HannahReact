@@ -1,0 +1,61 @@
+
+/* ******************************************* ABOUT */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 75vw;
+  margin: 0 auto;
+  margin-top: var(--page-top-space);
+  align-items: stretch;
+}
+.aboutcard {
+  display: flex;  
+  flex-direction: column;
+  flex: 1 1 calc(50% - 5rem); 
+  max-width: calc(50% - 1rem);
+  text-align: center;
+  box-sizing: border-box;
+
+}
+
+.aboutcard.portrait {
+  height: auto;
+  padding: 0.5rem;
+}
+.aboutcard.bio {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  min-height: 100%;
+  width: 100%;
+  overflow: auto;
+  word-break: break-word;
+  padding: 1rem;
+}
+
+.about a, .navwork li {
+  color: #d2a0a0;
+}
+
+.aboutcard img.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .aboutcard {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .greencontainer.bio {
+    max-width: 100%;
+  }
+}

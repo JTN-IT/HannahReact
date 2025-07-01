@@ -68,6 +68,10 @@
 @media (max-width: 600px) {
   .modal-content {
     max-width: 98vw;
-    padding: 1rem 0.5rem 1rem 0.5rem;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  .modal-content h2 {
+    text-align: center;
   }
 }
