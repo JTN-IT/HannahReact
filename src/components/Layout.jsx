@@ -36,6 +36,7 @@ function Layout() {
 
       <footer className="footer">
         <p>&copy; Hannah Myers</p>
+        <a href="/admin" target="_blank" rel="noopener noreferrer">Admin</a>
       </footer>
     </div>
   );
