@@ -1,9 +1,6 @@
 backend:
   name: git-gateway
-  branch: main   # Change to your default branch if it's not 'main'
-
-media_folder: "static/images/uploads"    # Path to store uploaded images
-public_folder: "/images/uploads"         # Path the CMS and site use to access images
+  branch: main
 
 collections:
   - name: "blog"
@@ -12,9 +9,14 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     path: "{{slug}}/index"
+    media_folder: "{{slug}}/images"
+    public_folder: "/blog/{{slug}}/images"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Excerpt", name: "excerpt", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Images", name: "images", widget: "image", multiple: true, media_folder: "images", public_folder: "images"}
+      - label: "Images"
+        name: "images"
+        widget: "image"
+        multiple: true
