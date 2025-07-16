@@ -38,7 +38,7 @@
   gap: 1rem;
   }
   .navwork li, .navwork a {
-    line-height: 1.2; /* or 1, or whatever looks best */
-    font-size: 1rem;
+    line-height: 1; /* or 1, or whatever looks best */
+    font-size: 0.85rem;
   }
 }

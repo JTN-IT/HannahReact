@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 import GreenBox from '../components/GreenBox.jsx';
 import portrait from '../assets/images/portrait.jpg';
 import './AboutPage.css';
