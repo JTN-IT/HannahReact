@@ -53,7 +53,7 @@
 /* --- Responsive for mobile --- */
 @media (max-width: 900px) {
   .work {
-  margin-top: calc(var(--page-top-space) - 132px);
+  margin-top: calc(var(--page-top-space) - 112px);
   }
 
   .card-container {
