@@ -46,24 +46,28 @@ function BlogPage() {
 
     return (
         <div className="blog">
-            <h1>Blog</h1>
-            <ul>
+            <ul className="blog-list">
                 {blogPosts.map(post => (
-                <li key={post.slug}>
-                    <button onClick={() => { setSelectedPost(post); setShowModal(true); }}>
-                        <h2>{post.title}</h2>
-                        <p>{post.excerpt}</p>
-                        <small>{new Date(post.date).toLocaleDateString()}</small>
-                        {post.images && post.images.length > 0 && (
-                            <img
-                                className="blog-thumbnail"
-                                src={post.images[0]}
-                                alt={post.title + " thumbnail"}
-                                style={{ width: "100px", height: "auto", objectFit: "cover" }} // Adjust as you like
-                            />
-                        )}
-                    </button>
-                </li>
+                    <li key={post.slug} className="blog-preview">
+                        <button onClick={() => { setSelectedPost(post); setShowModal(true); }}>
+                            <h2>{post.title}</h2>
+                            {post.images && post.images.length > 0 && (
+                                <img
+                                    className="blog-thumbnail"
+                                    src={post.images[0]}
+                                    alt={post.title + " thumbnail"}
+                                />
+                            )}
+                            <small className="blog-date">
+                                {post.date && new Date(post.date).toLocaleDateString('en-GB', {
+                                    day: 'numeric',
+                                    month: 'long',
+                                    year: 'numeric'
+                                })}
+                            </small>
+                            <p>{post.excerpt}</p>
+                        </button>
+                    </li>
                 ))}
             </ul>
             
@@ -72,7 +76,13 @@ function BlogPage() {
                     <div className="modal-content" onClick={e => e.stopPropagation()}>
                         <button className="modal-close" onClick={() => setShowModal(false)}>&times;</button>
                         <h2>{selectedPost.title}</h2>
-                        <small>{selectedPost.date} by {selectedPost.author}</small>
+                        <small className="blog-date">
+                            {selectedPost.date && new Date(selectedPost.date).toLocaleDateString('en-GB', {
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric'
+                            })}
+                            </small>
                             <div className="blogdetailcontent">
                                 <div dangerouslySetInnerHTML={{ __html: selectedPost.content }} />
                                  {selectedPost.images && selectedPost.images.length > 0 && (

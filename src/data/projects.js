@@ -107,7 +107,7 @@ const projects = [
     details: [
       { type: "text", value: `'Be-Wildered in the City' was a holistic Edinburgh Fringe Festival event lead by the Schumacher College Scottish alumni. People were brought together alongside the Water of Leith to be present and witness a peaceful existence. The mindful and explorative activities helped everyone to connect deeply with nature and their own inner landscape. It left many people feeling balanced, revitalised and inspired.` },
       { type: "image", value: "/assets/images/work.collaboration/bewildered.avif" },
-      { type: "text", value: `Schumacher Scotland facilitators: Glen Cousquer, David Delsart, Mona Kastell, Murray Mc Grath, Hannah Myers, Danuta Orlowska & Alasdair Sim\nPhotography: Hannah Myers` },
+      { type: "text", value: `Schumacher Scotland facilitators:\nGlen Cousquer, David Delsart, Mona Kastell, Murray Mc Grath, Hannah Myers, Danuta Orlowska & Alasdair Sim\n\nPhotography:\nHannah Myers` },
     ]
   }
 ];

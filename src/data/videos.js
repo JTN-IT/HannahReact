@@ -56,14 +56,14 @@ const videos = [
     type: "link",
     href: "https://youtu.be/0UX1dSzNvqQ?si=fQYfsoL-zZ3EJv0R",
     img: "https://img.youtube.com/vi/0UX1dSzNvqQ/hqdefault.jpg",
-    desc: `'JOURNEY' is my ongoing, evolving project addressing humankind's devastation of nature whilst celebrating the beauty of nature and all that she provides.This one is a link to Youtube!`,
+    desc: `'JOURNEY' is my ongoing, evolving project addressing humankind's devastation of nature whilst celebrating the beauty of nature and all that she provides. This one is a link to Youtube!`,
   },
   {
     id: "beest",
     type: "link",
     href: "https://youtu.be/uzQbA5B9388?si=BRQdYGYWwiMf1sf5",
     img: "https://img.youtube.com/vi/uzQbA5B9388/hqdefault.jpg",
-    desc: `BEEST "Inspired by Grimes' song: 'Genesis', I created a video to capture my BEEST mechanism, inspired by Theo Jansen's 'Strandbeests'. I don't take any credit for either Grimes' music or Theo Jansen's  'Strandbeest' creations. I just had a lot of fun!" This one is a link to Youtube!`,
+    desc: "'BEEST' Inspired by Grimes' song 'Genesis', I created a video to capture my BEEST mechanism, inspired by Theo Jansen's 'Strandbeests'. I don't take any credit for either Grimes' music or Theo Jansen's  'Strandbeest' creations. I just had a lot of fun! This one is a link to Youtube.",
   },
 ];
 

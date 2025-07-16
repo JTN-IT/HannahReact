@@ -92,6 +92,10 @@
   margin: 2rem auto 0 auto;
 }
 
+.workdetailcontent ul {
+  list-style: none;
+}
+
 .workdetailcontent img {
   height: auto;
   display: block;
