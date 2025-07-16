@@ -88,7 +88,7 @@
   align-items: center;  /* Horizontally center the content */
   box-sizing: border-box;
   text-align: center;
-  width: 75vh;
+  width: 100%;
   margin: 2rem auto 0 auto;
 }
 
@@ -97,6 +97,7 @@
 }
 
 .workdetailcontent img {
+  max-width: 100%;
   height: auto;
   display: block;
   margin: 1rem auto;
