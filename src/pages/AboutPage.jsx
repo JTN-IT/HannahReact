@@ -35,7 +35,7 @@ function AboutPage() {
           creative expression. She loves to bring people together to create meaningful 
           connections.
         </p>
-        <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">View my CV</a>
+        <a href="HMyersCV.pdf" target="_blank" rel="noopener noreferrer">View my CV</a>
       </GreenBox>
       </section>
   );
