@@ -12,8 +12,8 @@ Once the editing was finished, we did technical run throughs to check the sound 
 
 See below the three animation videos from the three primary schools: Kyle, Loch Duich and Auchtertyre. Enjoy!
 
-https://www.youtube.com/watch?v=f9P2IT4DrDo
+[https://www.youtube.com/watch?v=f9P2IT4DrDo/](https://www.youtube.com/watch?v=f9P2IT4DrDo/)
 
-https://www.youtube.com/watch?v=apcIkdeJDyI
+[https://www.youtube.com/watch?v=apcIkdeJDyI/](https://www.youtube.com/watch?v=apcIkdeJDyI/)
 
-https://www.youtube.com/watch?v=mRgYvKyW0mw
+[https://www.youtube.com/watch?v=mRgYvKyW0mw/](https://www.youtube.com/watch?v=mRgYvKyW0mw/)
