@@ -26,8 +26,14 @@ body{
   max-width: 100vw;
 }
 :root {
-  --page-top-space: 10vh; /* or whatever your top space is */
+  --page-top-space: 5vh;
 }
+
+@media (max-width: 600px) {
+  :root {
+  --page-top-space: -1vh;}
+}
+
 html, body, #root {
   width: 100%;
   max-width: 100vw;

@@ -1,26 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import './Layout.css'
+
+const menuItems = [
+  { name: 'HOME', path: '/' },
+  { name: 'ABOUT', path: '/about' },
+  { name: 'WORK', path: '/work' },
+  { name: 'BLOG', path: '/blog' },
+  { name: 'CONTACT', path: '/contact' },
+];
 
 function Layout() {
 
   const [topbox, setTopbox] = useState(null);
 
-    return (
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const current = menuItems.find(item => item.path === location.pathname) || menuItems[0];
+
+  return (
     <div className="layout">
       <header className="artistheader">
         <h1 className="artistheading">Hannah Myers</h1>
         <h2 className="artistbanner">ARTIST</h2>
       </header>
 
-      <nav className="nav">
+      <nav className="nav desktop-menu">
         <ul>
-          <li><Link to="/">HOME</Link></li>
-          <li><Link to="/about">ABOUT</Link></li>
-          <li><Link to="/work">WORK</Link></li>
-          <li><Link to="/blog">BLOG</Link></li>
-          <li><Link to="/contact">CONTACT</Link></li>
+          {menuItems.map(item => (
+            <li key={item.path}>
+              <Link to={item.path}>{item.name}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
 

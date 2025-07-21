@@ -2,7 +2,7 @@
 
 /* ******************************************* WORK */
 .work {
-  margin-top: calc(var(--page-top-space) - 56px);
+  margin-top: var(--page-top-space);
 }
 
 .card-container {
@@ -52,9 +52,7 @@
 
 /* --- Responsive for mobile --- */
 @media (max-width: 900px) {
-  .work {
-  margin-top: calc(var(--page-top-space) - 112px);
-  }
+
 
   .card-container {
   display: flex;
