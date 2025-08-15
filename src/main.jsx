@@ -20,7 +20,7 @@ createRoot(document.getElementById("root")).render(
     clientId={import.meta.env.VITE_AUTH0_CLIENT_ID || import.meta.env.AUTH0_CLIENT_ID}
     
     authorizationParams={{
-      redirect_uri: window.location.origin,
+      redirect_uri: window.location.origin + "/auth/callback",
     }}
   >
       <StrictMode>
