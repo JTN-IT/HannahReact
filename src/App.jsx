@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage.jsx';
 import WorkPage from './pages/WorkPage.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
+import AdminPage from './pages/AdminPage.jsx';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="contact" element={<ContactPage />} />
         {/* Add more pages here */}
       </Route>
+    <Route path="/admin" element={<AdminPage />} /> 
     </Routes>
   );
 }
