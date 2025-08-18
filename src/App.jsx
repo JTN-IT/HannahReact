@@ -8,7 +8,6 @@ import WorkPage from './pages/WorkPage.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import AdminPage from './pages/AdminPage.jsx';
-import AuthCallbackPage from './pages/AuthCallbackPage.jsx';
 
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
         {/* Add more pages here */}
       </Route>
     <Route path="/admin" element={<AdminPage />} />
-    <Route path="/auth/callback" element={<AuthCallbackPage />} />
     </Routes>
   );
 }

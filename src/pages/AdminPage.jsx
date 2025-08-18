@@ -1,48 +1,89 @@
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
+const BLOCK_TYPES = [
+  { value: "text", label: "Text" },
+  { value: "image", label: "Image" },
+  { value: "link", label: "Link" },
+];
+
 export default function AdminPage() {
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
 
-  const [type, setType] = useState("project");
-  const [file, setFile] = useState(null);
+  const [title, setTitle] = useState("");
+  const [contentBlocks, setContentBlocks] = useState([]);
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleUpload = async (e) => {
-    e.preventDefault();
-    if (!file) {
-      setStatus("Please select a file to upload.");
-      return;
-    }
-    setLoading(true);
-    setStatus("");
+  // Add new block
+  const addBlock = () => {
+    setContentBlocks([
+      ...contentBlocks,
+      { type: "text", value: "" }
+    ]);
+  };
 
-    const formData = new FormData();
-    formData.append("type", type);
-    formData.append("file", file);
+  // Remove a block
+  const removeBlock = (idx) => {
+    setContentBlocks(contentBlocks.filter((_, i) => i !== idx));
+  };
+
+  // Change block type
+  const changeBlockType = (idx, type) => {
+    setContentBlocks(contentBlocks.map((block, i) =>
+      i === idx
+        ? { ...block, type, value: (type === "image" ? null : ""), file: undefined }
+        : block
+    ));
+  };
+
+  // Change block value (for text/link)
+  const changeBlockValue = (idx, value) => {
+    setContentBlocks(contentBlocks.map((block, i) =>
+      i === idx ? { ...block, value } : block
+    ));
+  };
+
+  // Change block file (for image)
+  const changeBlockFile = (idx, file) => {
+    setContentBlocks(contentBlocks.map((block, i) =>
+      i === idx ? { ...block, file, value: file ? file.name : "" } : block
+    ));
+  };
+
+  // Example submit handler (you can adapt for your API)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("");
+    setLoading(true);
 
     try {
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-        headers: {
-          // Auth header if needed, or Auth0 token
-          // Example: Authorization: `Bearer ${your_token}`
-        },
+      // Prepare data (if sending files, use FormData)
+      const formData = new FormData();
+      formData.append("title", title);
+      contentBlocks.forEach((block, idx) => {
+        formData.append(`blocks[${idx}][type]`, block.type);
+        if (block.type === "image" && block.file) {
+          formData.append(`blocks[${idx}][file]`, block.file);
+        } else {
+          formData.append(`blocks[${idx}][value]`, block.value);
+        }
       });
 
-      if (response.ok) {
-        setStatus("Upload successful!");
-      } else {
-        const errorText = await response.text();
-        setStatus(`Upload failed: ${errorText}`);
-      }
-    } catch (error) {
-      setStatus(`Upload failed: ${error.message}`);
+      // You can POST this to your backend
+      // const response = await fetch("/api/submit", {
+      //   method: "POST",
+      //   body: formData,
+      // });
+
+      // if (response.ok) setStatus("Submitted successfully!");
+      // else setStatus("Submission failed.");
+
+      setStatus("Submission simulated! (not actually sent)");
+    } catch (err) {
+      setStatus("Error: " + err.message);
     } finally {
       setLoading(false);
-      setFile(null);
     }
   };
 
@@ -58,30 +99,81 @@ export default function AdminPage() {
   }
 
   return (
-    <div>
+    <div style={{ maxWidth: 700, margin: "0 auto" }}>
       <h2>Welcome, {user && user.name}!</h2>
       <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
         Log Out
       </button>
-      <form onSubmit={handleUpload} style={{ marginTop: 32 }}>
-        <label>
-          Type:
-          <select value={type} onChange={e => setType(e.target.value)}>
-            <option value="project">Project (.json)</option>
-            <option value="blog">Blog Post (.md)</option>
-          </select>
-        </label>
-        <br />
-        <input
-          type="file"
-          accept={type === "project" ? ".json" : ".md"}
-          onChange={e => setFile(e.target.files[0])}
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? "Uploading..." : "Upload"}
+      <form onSubmit={handleSubmit} style={{ marginTop: 32 }}>
+        <div>
+          <label>
+            Title/Heading:
+            <input
+              type="text"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+              style={{ marginLeft: 8, width: "70%" }}
+              required
+            />
+          </label>
+        </div>
+
+        <h3 style={{ marginTop: 24 }}>Content Blocks</h3>
+        {contentBlocks.map((block, idx) => (
+          <div key={idx} style={{ border: "1px solid #ccc", padding: 16, marginBottom: 12 }}>
+            <label>
+              Block type:&nbsp;
+              <select
+                value={block.type}
+                onChange={e => changeBlockType(idx, e.target.value)}
+              >
+                {BLOCK_TYPES.map(opt =>
+                  <option key={opt.value} value={opt.value}>{opt.label}</option>
+                )}
+              </select>
+            </label>
+            <br />
+            {block.type === "text" && (
+              <textarea
+                value={block.value}
+                onChange={e => changeBlockValue(idx, e.target.value)}
+                placeholder="Enter text..."
+                style={{ width: "100%", marginTop: 8 }}
+                rows={4}
+              />
+            )}
+            {block.type === "image" && (
+              <input
+                type="file"
+                accept="image/*"
+                onChange={e => changeBlockFile(idx, e.target.files[0])}
+                style={{ marginTop: 8 }}
+              />
+            )}
+            {block.type === "link" && (
+              <input
+                type="url"
+                value={block.value}
+                onChange={e => changeBlockValue(idx, e.target.value)}
+                placeholder="Enter link URL..."
+                style={{ width: "100%", marginTop: 8 }}
+              />
+            )}
+            <button type="button" onClick={() => removeBlock(idx)} style={{ marginTop: 8, color: "red" }}>
+              Remove Block
+            </button>
+          </div>
+        ))}
+        <button type="button" onClick={addBlock} style={{ marginBottom: 16 }}>
+          Add Content Block
         </button>
+        <div>
+          <button type="submit" disabled={loading}>
+            {loading ? "Submitting..." : "Submit Page"}
+          </button>
+        </div>
+        {status && <div style={{ marginTop: 16 }}>{status}</div>}
       </form>
-      {status && <div style={{ marginTop: 16 }}>{status}</div>}
     </div>
   );
 }
