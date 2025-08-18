@@ -1,0 +1,17 @@
+{
+  "imageSrc": "/assets/images/work.creations/journey1.jpg",
+  "title": "Journey - A Celebration of Nature",
+  "description": "In the format of a continuous poem, the book tells the story of Hannah walking barefoot through her forest at home.\n\nClick me to see more!",
+  "link": "/work/projectpages/journey",
+  "category": "creations",
+  "details": [
+    { "type": "image", "value": "/assets/images/work.creations/journey1.jpg" },
+    { 
+      "type": "text", 
+      "value": "Hannah designed and constructed these costumes in her final year of studying Performance Costume BA (Hons). The ECA Costume Show 2020 was cancelled due to the pandemic so Hannah decided to make a video of her costumes in her local forest as an alternative way to show them. Watch a video of this project [here](https://www.youtube.com/watch?v=0UX1dSzNvqQ) !\n\nThe inspiration for the costumes was a book that Hannah wrote called 'Journey'. In the format of a continuous poem, the book tells the story of Hannah walking barefoot through her forest at home. She describes all of the sensations that she experienced: scents, sights, sounds and the different textures felt under her feet; some nice, some painful. During her walk, she also found objects, plants or animals that she took close-up photographs of and had wonderful imaginings of a miniature human interacting with these things. She created these imaginings visually in photographic form and they appear in the book at the points where they were spotted along the journey. With each image there is a short poem that she wrote to tell a taster of a story about the miniature person's experience. The costumes were inspired by the natural textures found in each photograph. The pages of the book are the paper gills of a mushroom. She created this mushroom structure in order to present the book as a natural form; in homage to the forest (see images below)." 
+    },
+    { "type": "image", "value": "/assets/images/work.creations/journey2.jpg" },
+    { "type": "image", "value": "/assets/images/work.creations/journey3.jpg" },
+    { "type": "text", "value": "(Image of miniature character as it appears in the book.)"}
+  ]
+}

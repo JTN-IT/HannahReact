@@ -45,9 +45,6 @@ function Layout() {
         </div>
       </main>
 
-      <footer className="footer">
-        <p>&copy; Hannah Myers</p>
-      </footer>
     </div>
   );
 }

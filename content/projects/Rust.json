@@ -1,0 +1,21 @@
+{
+  "imageSrc": "/assets/images/work.creations/rust1.jpg",
+  "title": "Rust Textile",
+  "description": "I made these rust-inspired textiles out of paper and fabric scraps whilst on the Bridge House Art Portfolio Course in Ullapool. I was inspired by rusty boats and old doors where the paint peels away and reveals beautiful patterns.",
+  "link": "/work/projectpages/rust",
+  "category": "creations",
+  "details": [
+    {
+      "type": "text",
+      "value": "I made these rust-inspired textiles out of paper and fabric scraps whilst on the Bridge House Art Portfolio Course in Ullapool. I was inspired by rusty boats and old doors where the paint starts to peel off."
+    },
+    {
+      "type": "image",
+      "value": "/assets/images/work.creations/rust1.jpg"
+    },
+    {
+      "type": "image",
+      "value": "/assets/images/work.creations/rust2.jpg"
+    }
+  ]
+}

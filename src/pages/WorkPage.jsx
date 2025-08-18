@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import WorkNav from '../components/WorkNav';
 import WorkCard from '../components/WorkCard';
 import VideoPage from '../pages/VideoPage';
-import projects from '../data/projects';
 import { useOutletContext } from 'react-router-dom';
 import './WorkPage.css';
+
+// Import all JSON files in /content/projects/
+const projectModules = import.meta.glob('../../content/projects/*.json', { eager: true });
+
+// Convert imports to an array
+const projects = Object.values(projectModules);
 
 
 function WorkPage() {

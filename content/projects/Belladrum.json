@@ -1,0 +1,18 @@
+{
+  "imageSrc": "/assets/images/work.performance/belladrum.avif",
+  "title": "Tartan Heart Festival, Belladrum",
+  "description": "I worked as part of the team at Belladrum to operate multiple life-size puppets.\n\nClick me to see more!",
+  "link": "/work/projectpages/belladrum",
+  "category": "performance",
+  "videoId": "belladrum",
+  "details": [
+    {
+      "type": "text",
+      "value": "Black Dog Puppet Company, lead by Greg Dobson, have brought many exciting life-size puppets to the Tartan Heart Festival over the past few years. I have worked as part of the team to operate multiple War Horse replica puppets, a life-sized elephant puppet and a life-sized whale puppet. We have also performed at several of the Ness Islands Halloween Shows.\n\nSee my Videos page for a video of me puppeteering my feral cat puppet, spider puppet and the elephant puppet shown."
+    },
+    {
+      "type": "image",
+      "value": "/assets/images/work.performance/belladrum.avif"
+    }
+  ]
+}

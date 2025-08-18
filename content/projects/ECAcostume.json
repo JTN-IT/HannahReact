@@ -1,0 +1,17 @@
+{
+  "imageSrc": "/assets/images/work.performance/ECACostume.avif",
+  "title": "ECA Costume Show",
+  "description": "I performed in the ECA Costume Show 2018 and 2019, as Sister Sage and Pamina.\n\nClick me to see more!",
+  "link": "/work/projectpages/ecacostume",
+  "category": "performance",
+  "details": [
+    {
+      "type": "text",
+      "value": "I performed in the ECA Costume Show 2018 and 2019. It is always a wonderful, thrilling experience and a great opportunity to make creative connections backstage!\n\nI wore Callum Miller's costume for The Bees character, Sister Sage (on the left). Click [here](https://www.instagram.com/callumillercostume_/) for more of Callum's work.\nI wore Lada Sotirova's costume for The Magic Flute character, Pamina (on the right). Click [here](https://www.instagram.com/l.d.sotirova/) for more of Lada's work."
+    },
+    {
+      "type": "image",
+      "value": "/assets/images/work.performance/ECACostume.avif"
+    }
+  ]
+}

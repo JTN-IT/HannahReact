@@ -1,0 +1,17 @@
+{
+  "imageSrc": "/assets/images/work.performance/diapason.avif",
+  "title": "Diapason",
+  "description": "A project lead by performance artist Alex Rigg, showcasing costumes inspired by poems that Alex had written.\n\nClick me to see more!",
+  "link": "/work/projectpages/diapason",
+  "category": "performance",
+  "details": [
+    {
+      "type": "text",
+      "value": "Diapason : noun\n\n1. an organ stop sounding a main register of flue pipes, typically of eight-foot pitch.\n2. a grand swelling burst of harmony.\n\nPerformance artist, Alex Rigg lead the Diapason project. The starting point for designing costumes were poems that Alex had written. Vibration and sound were a recurring theme in the poem I chose. Within it, there were lines that drew me towards images of beating hearts, shaking, reverberation and waves of sound. I echoed these themes in my textiles and created a tasselled cloak that shimmered and shook; creating my visual representation of sound:"
+    },
+    {
+      "type": "image",
+      "value": "/assets/images/work.performance/diapason.avif"
+    }
+  ]
+}

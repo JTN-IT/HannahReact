@@ -21,7 +21,18 @@ export default function AdminPage() {
       <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
         Log Out
       </button>
-      <p>This is the admin page.</p>
-    </div>
+      <form onSubmit={handleUpload}>
+        <label>
+          Type:
+          <select value={type} onChange={e => setType(e.target.value)}>
+            <option value="project">Project (.json)</option>
+            <option value="blog">Blog Post (.md)</option>
+          </select>
+        </label>
+        <br />
+        <input type="file" accept={type === 'project' ? '.json' : '.md'} onChange={e => setFile(e.target.files[0])} />
+        <button type="submit">Upload</button>
+      </form>
+    </div> 
   );
 }
