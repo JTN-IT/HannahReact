@@ -7,6 +7,10 @@ const GITHUB_OWNER = process.env.GITHUB_OWNER;
 
 exports.handler = async (event) => {
 
+    console.log("Handler start");
+    console.log("Token:", token);
+    console.log("Public key: ", process.env.AUTH0_PUBLIC_KEY);
+
     const { IncomingForm } = require("formidable");
     const { Buffer } = require("buffer");
     const { PassThrough } = require("stream");
@@ -18,8 +22,7 @@ exports.handler = async (event) => {
     // Step 1: Verify Auth0 JWT
     const authHeader = event.headers.authorization || "";
     const token = authHeader.replace("Bearer ", "");
-    console.log("Token:", token);
-    console.log("Public key: ", process.env.AUTH0_PUBLIC_KEY)
+    
     try {
         // Replace with your Auth0 domain and audience
         const decoded = jwt.verify(token, process.env.AUTH0_PUBLIC_KEY, {
