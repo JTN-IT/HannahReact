@@ -73,6 +73,7 @@ export default function AdminPage() {
 
       // Get the Auth0 access token for the API
       const token = await getAccessTokenSilently();
+      console.log("Token: ", token);
 
       // Send to the Netlify function, with Authorization header
       const response = await fetch("/.netlify/functions/content-upload", {
