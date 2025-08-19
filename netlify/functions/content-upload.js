@@ -18,6 +18,7 @@ exports.handler = async (event) => {
     // Step 1: Verify Auth0 JWT
     const authHeader = event.headers.authorization || "";
     const token = authHeader.replace("Bearer ", "");
+    console.log("Token:", token);
     try {
         // Replace with your Auth0 domain and audience
         const decoded = jwt.verify(token, process.env.AUTH0_PUBLIC_KEY, {
@@ -28,7 +29,8 @@ exports.handler = async (event) => {
         // Optional: Check for admin role here
     } catch (err) {
         return { statusCode: 401, body: "Invalid token" };
-    }
+    };
+    console.log("Decoded JWT:", decoded);
 
 
 

@@ -61,12 +61,13 @@ export default function AdminPage() {
       // Prepare data (if sending files, use FormData)
       const formData = new FormData();
       formData.append("title", title);
+      
+      
+      formData.append("blocks", JSON.stringify(contentBlocks));
+      // And if you want to send images, you can keep appending files separately:
       contentBlocks.forEach((block, idx) => {
-        formData.append(`blocks[${idx}][type]`, block.type);
         if (block.type === "image" && block.file) {
-          formData.append(`blocks[${idx}][file]`, block.file);
-        } else {
-          formData.append(`blocks[${idx}][value]`, block.value);
+          formData.append(`files[${idx}]`, block.file);
         }
       });
 
