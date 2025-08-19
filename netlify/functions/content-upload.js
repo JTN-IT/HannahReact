@@ -74,6 +74,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ message: "Content uploaded to GitHub", path: filename }),
     };
   } else {
-    return { statusCode: 500, body: "GitHub upload failed" };
+    const errorText = await res.text();  // <-- Capture GitHub error
+    return { statusCode: 500, body: `GitHub upload failed: ${errorText}` };
   }
 };
