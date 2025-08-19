@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.4.0",
+    "@netlify/functions": "^4.2.2",
+    "formidable": "^3.5.4",
     "gray-matter": "^4.0.3",
     "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",
