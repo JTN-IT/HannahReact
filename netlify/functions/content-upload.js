@@ -1,4 +1,3 @@
-const fetch = require("node-fetch");
 const jwt = require("jsonwebtoken"); // or use @auth0/jwt-decode for Auth0 tokens
 
 // These should be set in Netlify's environment variables
