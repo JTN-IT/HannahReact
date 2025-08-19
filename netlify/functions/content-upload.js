@@ -19,6 +19,7 @@ exports.handler = async (event) => {
     const authHeader = event.headers.authorization || "";
     const token = authHeader.replace("Bearer ", "");
     console.log("Token:", token);
+    console.log("Public key: ", process.env.AUTH0_PUBLIC_KEY)
     try {
         // Replace with your Auth0 domain and audience
         const decoded = jwt.verify(token, process.env.AUTH0_PUBLIC_KEY, {
