@@ -8,7 +8,7 @@ const BLOCK_TYPES = [
 ];
 
 export default function AdminPage() {
-  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user, isLoading, getAccessTokenSilently } = useAuth0();
 
   const [title, setTitle] = useState("");
   const [contentBlocks, setContentBlocks] = useState([]);
@@ -70,16 +70,22 @@ export default function AdminPage() {
         }
       });
 
-      // You can POST this to your backend
-      // const response = await fetch("/api/submit", {
-      //   method: "POST",
-      //   body: formData,
-      // });
+      // Get the Auth0 access token for the API
+      const token = await getAccessTokenSilently();
 
-      // if (response.ok) setStatus("Submitted successfully!");
-      // else setStatus("Submission failed.");
+      // Send to the Netlify function, with Authorization header
+      const response = await fetch("/.netlify/functions/content-upload", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          // Note: Do NOT set Content-Type when sending FormData, browser will set it with boundary.
+        },
+        body: formData,
+      });
 
-      setStatus("Submission simulated! (not actually sent)");
+
+      if (response.ok) setStatus("Submitted successfully!");
+      else setStatus("Submission failed.");
     } catch (err) {
       setStatus("Error: " + err.message);
     } finally {

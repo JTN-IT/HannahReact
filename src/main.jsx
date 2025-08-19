@@ -21,6 +21,7 @@ createRoot(document.getElementById("root")).render(
     
     authorizationParams={{
       redirect_uri: window.location.origin + "/admin",
+      audience: "https://hannah-myers-artist.com/admin/service_api"
     }}
   >
       <StrictMode>
