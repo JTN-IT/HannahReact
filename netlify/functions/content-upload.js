@@ -24,6 +24,10 @@ function getKey(header, callback) {
 exports.handler = async (event) => {
 
     console.log("Handler start");
+
+    // Log headers for debugging
+    console.log("Headers:", event.headers);
+    
     const authHeader = event.headers.authorization || "";
     const token = authHeader.replace("Bearer ", "");
     console.log("Token:", token);
@@ -68,40 +72,37 @@ exports.handler = async (event) => {
     const stream = new PassThrough();
     stream.end(bodyBuffer);
 
-    // Create headers for formidable (content-type is required). 
-    // Content-type added by browser, not FormData!
-    const headers = {
-        "content-type": event.headers["content-type"] || event.headers["Content-Type"]
-    };
+    // Defensive: Lowercase all headers and provide fallback for missing
+    const lowercasedHeaders = {};
+    for (const k in event.headers) {
+      lowercasedHeaders[k.toLowerCase()] = event.headers[k];
+    }
+    // Fallbacks for formidable: always provide content-type and content-length, even if empty
+    lowercasedHeaders["content-type"] = lowercasedHeaders["content-type"] || "";
+    lowercasedHeaders["content-length"] = lowercasedHeaders["content-length"] || "0";
+
+    // Attach headers to the stream (formidable v3+ looks for headers property)
+    stream.headers = lowercasedHeaders;
 
     // Wrap formidable in a Promise for async/await
     const form = new IncomingForm();
-
-    const { fields, files } = await new Promise((resolve, reject) => {
-        form.parse(stream, (err, fields, files) => {
+    let fields, files;
+    try {
+      ({ fields, files } = await new Promise((resolve, reject) => {
+        form.parse(stream, (err, flds, fls) => {
             if (err) reject(err);
-            else resolve({ fields, files });
+            else resolve({ fields: flds, files: fls });
         });
-    });
-
-
-    /* copilot got confused and wants to trash this, but I trust its focus before it went stupid again. Saving for reference:
-    const { fields, files } = await new Promise((resolve, reject) => {
-        form.parse({ headers, pipe: s => stream.pipe(s) }, (err, fields, files) => {
-        if (err) reject(err);
-        else resolve({ fields, files });
-        });
-    });
-    */
-
-    // Now I have:
-    // fields -> all regular fields (title, etc)
-    // files  -> uploaded files
-
+      }));
+    } catch (err) {
+      console.error("Formidable error:", err);
+      return { statusCode: 400, body: "Error parsing form-data: " + err.message };
+    }
 
     if (!fields.title || !fields.blocks) {
     return { statusCode: 400, body: "Invalid payload" };
     }
+
 
     // If blocks is sent as JSON in a text field, parse it:
     let blocks;
