@@ -2,7 +2,8 @@
   "name": "netlify-functions",
   "version": "1.0.0",
   "dependencies": {
+    "formidable": "^3.5.0",
     "jsonwebtoken": "^9.0.0",
-    "formidable": "^3.5.0"
+    "jwks-rsa": "^3.2.0"
   }
 }

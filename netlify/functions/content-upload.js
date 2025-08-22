@@ -1,9 +1,25 @@
-const jwt = require("jsonwebtoken"); // or use @auth0/jwt-decode for Auth0 tokens
+const jwt = require("jsonwebtoken");
+const jwksClient = require("jwks-rsa");
 
 // These should be set in Netlify's environment variables
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO  = process.env.GITHUB_REPO;
 const GITHUB_OWNER = process.env.GITHUB_OWNER;
+
+const client = jwksClient({
+  jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
+});
+
+function getKey(header, callback) {
+  client.getSigningKey(header.kid, function(err, key) {
+    if (err) {
+      callback(err);
+    } else {
+      const signingKey = key.getPublicKey();
+      callback(null, signingKey);
+    }
+  });
+}
 
 exports.handler = async (event) => {
 
@@ -11,7 +27,6 @@ exports.handler = async (event) => {
     const authHeader = event.headers.authorization || "";
     const token = authHeader.replace("Bearer ", "");
     console.log("Token:", token);
-    console.log("Public key: ", process.env.AUTH0_PUBLIC_KEY);
 
     const { IncomingForm } = require("formidable");
     const { Buffer } = require("buffer");
@@ -22,19 +37,25 @@ exports.handler = async (event) => {
     }
 
     // Step 1: Verify Auth0 JWT
+    let decoded;
     try {
-        // Replace with your Auth0 domain and audience
-        const decoded = jwt.verify(token, process.env.AUTH0_PUBLIC_KEY, {
-        audience: process.env.AUTH0_AUDIENCE,
-        issuer: `https://${process.env.AUTH0_DOMAIN}/`,
-        algorithms: ["RS256"],
+        decoded = await new Promise((resolve, reject) => {
+        jwt.verify(token, getKey, {
+            audience: process.env.AUTH0_AUDIENCE,
+            issuer: `https://${process.env.AUTH0_DOMAIN}/`,
+            algorithms: ["RS256"],
+        }, (err, decodedToken) => {
+            if (err) reject(err);
+            else resolve(decodedToken);
+        });
         });
         // Optional: Check for admin role here
     } catch (err) {
-        return { statusCode: 401, body: "Invalid token" };
-    };
+        return { statusCode: 401, body: "Invalid token: " + err.message };
+    }
     console.log("Decoded JWT:", decoded);
 
+    
 
 
     
